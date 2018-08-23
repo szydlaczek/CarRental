@@ -8,6 +8,6 @@ namespace CarRental.Infrastructure.Command
 {    
         public interface ICommandDispatcher
         {
-            Task DispatchAsync<T>(T Command) where T : ICommand;
+            Task<CommandResult> DispatchAsync<TParameter>(TParameter command) where TParameter : ICommand;
         }    
 }

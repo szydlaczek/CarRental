@@ -14,12 +14,12 @@ namespace CarRental.Infrastructure.Command
         {
             _context = context;
         }
-        public async Task DispatchAsync<T>(T Command) where T : ICommand
+        public async Task<CommandResult> DispatchAsync<TParameter>(TParameter command) where TParameter : ICommand
         {
-            if (Command == null)
-                throw new ArgumentNullException(nameof(Command), $"Command {typeof(T).Name} cannot be null");
-            var handler = _context.Resolve<ICommandHandler<T>>();
-            await handler.HandleAsync(Command);
+            if (command == null)
+                throw new ArgumentNullException(nameof(command), $"Command {typeof(TParameter).Name} cannot be null");
+            var handler = _context.Resolve<ICommandHandler<TParameter>>();
+            return await handler.HandleAsync(command);
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Infrastructure.ViewModel
 {
-    public class CarType : IQueryResult
+    public class CarTypeViewModel : IQueryResult
     {
     }
 }

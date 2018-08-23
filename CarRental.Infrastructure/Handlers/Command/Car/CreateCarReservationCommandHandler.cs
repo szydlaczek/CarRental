@@ -16,9 +16,9 @@ namespace CarRental.Infrastructure.Handlers.Car
         {
             _carReservationService = carReservationService;
         }
-        public async Task HandleAsync(CreateCarReservation Command)
+        public async Task<CommandResult> HandleAsync(CreateCarReservation Command)
         {
-            _carReservationService.GetType();
+           return  new CommandResult();
         }
     }
 }

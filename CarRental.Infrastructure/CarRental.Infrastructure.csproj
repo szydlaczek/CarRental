@@ -37,10 +37,17 @@
     <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -70,18 +77,20 @@
   <ItemGroup>
     <Compile Include="Command\CarReservation\CreateCarReservation.cs" />
     <Compile Include="Command\CommandDispatcher.cs" />
+    <Compile Include="Command\CommandResult.cs" />
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Command\ICommandDispatcher.cs" />
     <Compile Include="Command\ICommandHandler.cs" />
-    <Compile Include="Handlers\Command\Car\CreateCarReservationHandler.cs" />
-    <Compile Include="Handlers\Query\Car\CarReservationHandler.cs" />
-    <Compile Include="Handlers\Query\Car\CarTypesListHandler.cs" />
+    <Compile Include="DbContext\ApplicationDbContext.cs" />
+    <Compile Include="Handlers\Command\Car\CreateCarReservationCommandHandler.cs" />
+    <Compile Include="Handlers\Query\Car\CarTypesListQueryHandler.cs" />
     <Compile Include="IOC\Modules\CommandModule.cs" />
     <Compile Include="IOC\Modules\ContainerModule.cs" />
     <Compile Include="IOC\Modules\QueryModule.cs" />
     <Compile Include="IOC\Modules\RepositoryModule.cs" />
     <Compile Include="IOC\Modules\ServiceModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Query\CarReservation\CarTypeQuery.cs" />
     <Compile Include="Query\IQuery.cs" />
     <Compile Include="Query\IQueryDispatcher.cs" />
     <Compile Include="Query\IQueryHandler.cs" />
@@ -91,12 +100,11 @@
     <Compile Include="Services\CarReservationService.cs" />
     <Compile Include="Services\ICarReservationService.cs" />
     <Compile Include="Services\IService.cs" />
-    <Compile Include="ViewModel\CarType.cs" />
+    <Compile Include="ViewModel\CarReservationViewModel.cs" />
+    <Compile Include="ViewModel\CarTypeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ApplicationDbContext\" />
     <Folder Include="DTO\" />
-    <Folder Include="Query\CarReservation\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

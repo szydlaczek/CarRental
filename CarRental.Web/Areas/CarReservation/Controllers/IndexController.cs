@@ -2,7 +2,10 @@
 using CarRental.Infrastructure.Command;
 using CarRental.Infrastructure.Command.CarReservation;
 using CarRental.Infrastructure.Query;
+using CarRental.Infrastructure.Query.CarReservation;
 using CarRental.Infrastructure.Services;
+using CarRental.Infrastructure.ViewModel;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +24,8 @@ namespace CarRental.Web.Controllers
 
         }
         public async Task<ActionResult> Index()
-        {
-            await CommandDispatcher.DispatchAsync(new CreateCarReservation());
-            var viewmodel = QueryDispatcher.Dispatch<CreateCarReservation>();
+        {            
+            var re = await QueryDispatcher.DispatchAll<CarTypeViewModel>();           
 
             return View();
 

@@ -16,23 +16,17 @@ namespace CarRental.Infrastructure.Query
         }
         public async Task<TResult> Dispatch<TParametr, TResult>(TParametr query) where TParametr : IQuery where TResult : IQueryResult
         {
-            var handler = _context.Resolve<IQueryHandler<TParametr, TResult>>();
+            var handler = _context.ResolveOptional<IQueryHandler<TParametr, TResult>>();
             TResult result = await handler.Retrieve(query);
             return result;
-        }
 
-        public async Task<TResult> Dispatch<TResult>() where TResult : IQueryResult
+        }
+        public async Task<List<TResult>> DispatchAll<TResult>() where TResult : IQueryResult
         {
             var handler = _context.Resolve<IQueryHandler<TResult>>();
-            TResult result =await handler.Retrieve();
+            List<TResult> result = await handler.RetrievieAll();
             return result;
         }
-
-        public async Task<List<TResult>> DispatchList<TResult>() where TResult : IQueryResult
-        {
-            var handler = _context.Resolve<IQueryHandler<TResult>>();
-            List<TResult> result = await handler.RetrievieList();
-            return result;
-        }
+        
     }
 }

@@ -16,7 +16,8 @@ namespace CarRental.Infrastructure.IOC.Modules
             var assembly = typeof(QueryModule).GetTypeInfo().Assembly;
 
             builder.RegisterAssemblyTypes(assembly)
-                .AsClosedTypesOf(typeof(IQueryHandler<>))
+                .AsClosedTypesOf(typeof(IQueryHandler<>)) 
+                .AsClosedTypesOf(typeof(IQueryHandler<,>))
                 .InstancePerLifetimeScope();
 
             builder.RegisterType<QueryDispatcher>()

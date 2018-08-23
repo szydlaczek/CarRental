@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace CarRental.Infrastructure.Command
 {
-    public interface ICommandHandler<TParameter> where TParameter : ICommand
+    public class CommandResult
     {
-        Task<CommandResult> HandleAsync(TParameter Command);
+        public bool Success { get; set; }
+        public string Message { get; set; }
+        public dynamic Data { get; set; }
     }
 }
