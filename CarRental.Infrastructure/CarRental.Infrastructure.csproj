@@ -77,6 +77,7 @@
     <Compile Include="Handlers\Query\Car\CarReservationHandler.cs" />
     <Compile Include="IOC\Modules\CommandModule.cs" />
     <Compile Include="IOC\Modules\ContainerModule.cs" />
+    <Compile Include="IOC\Modules\QueryModule.cs" />
     <Compile Include="IOC\Modules\RepositoryModule.cs" />
     <Compile Include="IOC\Modules\ServiceModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

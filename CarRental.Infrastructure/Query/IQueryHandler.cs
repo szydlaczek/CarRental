@@ -11,5 +11,13 @@ namespace CarRental.Infrastructure.Query
         where TParameter : IQuery
     {
         Task<TResult> Retrieve(TParameter query);
+        
+    }
+    public interface IQueryHandler<TResult>
+        where TResult : IQueryResult
+        
+    {
+        Task<TResult> Retrieve();
+
     }
 }

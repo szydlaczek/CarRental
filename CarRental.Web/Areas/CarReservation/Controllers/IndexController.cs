@@ -1,6 +1,7 @@
 ﻿
 using CarRental.Infrastructure.Command;
 using CarRental.Infrastructure.Command.CarReservation;
+using CarRental.Infrastructure.Query;
 using CarRental.Infrastructure.Services;
 using System;
 using System.Collections.Generic;
@@ -14,15 +15,18 @@ namespace CarRental.Web.Controllers
     public class HomeController : BaseController
     {
         
-        public HomeController(ICommandDispatcher commandDispatcher)
-            :base(commandDispatcher)
+        public HomeController(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDispatcher)
+            :base(commandDispatcher, queryDispatcher)
         {
 
         }
         public async Task<ActionResult> Index()
         {
             await CommandDispatcher.DispatchAsync(new CreateCarReservation());
+            var viewmodel = QueryDispatcher.Dispatch<CreateCarReservation>();
+
             return View();
+
         }
     }
 }

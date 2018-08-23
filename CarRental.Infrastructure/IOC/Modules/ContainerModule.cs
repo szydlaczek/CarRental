@@ -13,6 +13,7 @@ namespace CarRental.Infrastructure.IOC.Modules
             builder.RegisterModule<ServiceModule>();
             builder.RegisterModule<RepositoryModule>();
             builder.RegisterModule<CommandModule>();
+            builder.RegisterModule<QueryModule>();
         }
     }
 }
