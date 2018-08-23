@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarRental.Core.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,9 @@ namespace CarRental.Infrastructure.Services
 {
     public class CarReservationService : ICarReservationService
     {
+        public CarReservationService(ICarReservationRepository carReservationRepository)
+        {
+
+        }
     }
 }
