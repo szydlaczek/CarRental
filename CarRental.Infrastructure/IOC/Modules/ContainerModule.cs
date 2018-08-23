@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using Autofac;
 namespace CarRental.Infrastructure.IOC.Modules
 {
-    public class ContainerModule : Module
+    public class ContainerModule : Autofac.Module
     {        
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterModule<ServiceModule>();
             builder.RegisterModule<RepositoryModule>();
+            builder.RegisterModule<CommandModule>();
         }
     }
 }

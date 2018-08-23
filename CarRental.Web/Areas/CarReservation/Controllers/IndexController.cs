@@ -1,4 +1,5 @@
 ﻿
+using CarRental.Infrastructure.Command;
 using CarRental.Infrastructure.Services;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,11 @@ using System.Web.Mvc;
 
 namespace CarRental.Web.Controllers
 {
-    public class HomeController : Controller
+    public class IndexController : BaseController
     {
-        public HomeController(ICarReservationService carReservationService)
+        
+        public IndexController(ICommandDispatcher commandDispatcher)
+            :base(commandDispatcher)
         {
 
         }

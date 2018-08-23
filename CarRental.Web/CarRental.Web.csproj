@@ -206,7 +206,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\CarReservation\CarReservationAreaRegistration.cs" />
-    <Compile Include="Areas\CarReservation\Controllers\HomeController.cs" />
+    <Compile Include="Areas\CarReservation\Controllers\IndexController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -256,8 +257,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\CarReservation\Views\Shared\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
