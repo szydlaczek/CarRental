@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Infrastructure.Services
+namespace CarRental.Infrastructure.Query
 {
-    public interface ICarReservationService
+    public interface IQuery
     {
-        Task DoSomething();
     }
 }

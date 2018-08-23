@@ -68,16 +68,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command\CarReservation\CreateCarReservationCommand.cs" />
+    <Compile Include="Command\CarReservation\CreateCarReservation.cs" />
     <Compile Include="Command\CommandDispatcher.cs" />
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Command\ICommandDispatcher.cs" />
     <Compile Include="Command\ICommandHandler.cs" />
+    <Compile Include="Handlers\Command\Car\CreateCarReservationHandler.cs" />
+    <Compile Include="Handlers\Query\Car\CarReservationHandler.cs" />
     <Compile Include="IOC\Modules\CommandModule.cs" />
     <Compile Include="IOC\Modules\ContainerModule.cs" />
     <Compile Include="IOC\Modules\RepositoryModule.cs" />
     <Compile Include="IOC\Modules\ServiceModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Query\IQuery.cs" />
+    <Compile Include="Query\IQueryDispatcher.cs" />
+    <Compile Include="Query\IQueryHandler.cs" />
+    <Compile Include="Query\IQueryResult.cs" />
+    <Compile Include="Query\QueryDispatcher.cs" />
     <Compile Include="Repositories\CarReservationRepository.cs" />
     <Compile Include="Services\CarReservationService.cs" />
     <Compile Include="Services\ICarReservationService.cs" />
@@ -85,7 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ApplicationDbContext\" />
-    <Folder Include="Handlers\" />
+    <Folder Include="Query\CarReservation\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

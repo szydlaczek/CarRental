@@ -13,5 +13,10 @@ namespace CarRental.Infrastructure.Services
         {
 
         }
+
+        public Task DoSomething()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

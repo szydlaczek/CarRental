@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Infrastructure.Command.CarReservation
+namespace CarRental.Infrastructure.Query
 {
-    public class CreateCarReservationCommand : ICommand
+    public interface IQueryResult
     {
     }
 }
