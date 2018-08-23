@@ -28,6 +28,11 @@ namespace CarRental.Infrastructure.Query
             return result;
         }
 
-        
+        public async Task<List<TResult>> DispatchList<TResult>() where TResult : IQueryResult
+        {
+            var handler = _context.Resolve<IQueryHandler<TResult>>();
+            List<TResult> result = await handler.RetrievieList();
+            return result;
+        }
     }
 }

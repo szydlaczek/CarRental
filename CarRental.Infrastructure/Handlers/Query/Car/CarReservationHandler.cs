@@ -14,7 +14,16 @@ namespace CarRental.Infrastructure.Handlers.Query.Car
         {
             return null;
         }
-        
+
+        public Task<List<CreateCarReservation>> RetrieveList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<CreateCarReservation>> Retrive()
+        {
+            throw new NotImplementedException();
+        }
     }
     public class EditCarReservationHandler : IQueryHandler<CreateCarReservation, CreateCarReservation>
     {       

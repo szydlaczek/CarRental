@@ -91,6 +91,7 @@
     <Compile Include="Services\CarReservationService.cs" />
     <Compile Include="Services\ICarReservationService.cs" />
     <Compile Include="Services\IService.cs" />
+    <Compile Include="ViewModel\CarType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ApplicationDbContext\" />
