@@ -20,4 +20,5 @@ namespace CarRental.Infrastructure.Query
         Task<TResult> Retrieve();
 
     }
+    
 }

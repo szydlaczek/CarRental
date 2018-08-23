@@ -27,5 +27,7 @@ namespace CarRental.Infrastructure.Query
             TResult result =await handler.Retrieve();
             return result;
         }
+
+        
     }
 }

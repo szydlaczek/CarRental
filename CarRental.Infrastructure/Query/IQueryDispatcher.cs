@@ -10,5 +10,6 @@ namespace CarRental.Infrastructure.Query
     {
         Task<TResult> Dispatch<TParametr, TResult>(TParametr query) where TParametr : IQuery where TResult : IQueryResult;
         Task<TResult> Dispatch<TResult>() where TResult : IQueryResult;
+        
     }
 }

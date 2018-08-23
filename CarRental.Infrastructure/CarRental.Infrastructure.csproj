@@ -75,6 +75,7 @@
     <Compile Include="Command\ICommandHandler.cs" />
     <Compile Include="Handlers\Command\Car\CreateCarReservationHandler.cs" />
     <Compile Include="Handlers\Query\Car\CarReservationHandler.cs" />
+    <Compile Include="Handlers\Query\Car\CarTypesListHandler.cs" />
     <Compile Include="IOC\Modules\CommandModule.cs" />
     <Compile Include="IOC\Modules\ContainerModule.cs" />
     <Compile Include="IOC\Modules\QueryModule.cs" />
@@ -93,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ApplicationDbContext\" />
+    <Folder Include="DTO\" />
     <Folder Include="Query\CarReservation\" />
   </ItemGroup>
   <ItemGroup>
