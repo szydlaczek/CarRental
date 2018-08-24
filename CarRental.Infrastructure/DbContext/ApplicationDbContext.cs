@@ -10,8 +10,8 @@ namespace CarRental.Infrastructure.ApplicationDbContext
 {
     public class ApplicationContext : DbContext
     {
-        IDbSet<CarReservation> CarReservation { get; set; }
-        IDbSet<CarType> CarType { get; set; }
+        public IDbSet<CarReservation> CarReservation { get; set; }
+        public IDbSet<CarType> CarType { get; set; }
         public ApplicationContext():base("")
         {
 

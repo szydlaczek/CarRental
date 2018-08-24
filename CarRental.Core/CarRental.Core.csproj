@@ -47,8 +47,13 @@
     <Compile Include="Domain\Entity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ICarReservationRepository.cs" />
+    <Compile Include="Repositories\ICarTypeRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Specifications\CarReservation\DateSpecification.cs" />
+    <Compile Include="Specifications\ISpecification.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Specifications\CarType\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
