@@ -8,6 +8,6 @@ namespace CarRental.Infrastructure.Services
 {
     public interface ICarReservationService
     {
-        Task DoSomething();
+        Task CreateCarReservation();
     }
 }
