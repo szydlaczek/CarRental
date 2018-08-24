@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace CarRental.Core.Domain
 {
-    public class CarReservation
+    public class CarReservation : Entity<long>
     {
+        public DateTime ReservationDate { get; private set; }
+
+        public long Id { get; private set; }
+
+        public virtual CarType CarType { get; private set; }
     }
 }

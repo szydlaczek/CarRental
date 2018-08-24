@@ -11,6 +11,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
+using FluentValidation.Mvc;
 
 namespace CarRental.Web
 {
@@ -19,6 +20,7 @@ namespace CarRental.Web
         protected void Application_Start()
         {
             ConfigureContainer();
+            FluentValidationModelValidatorProvider.Configure();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
