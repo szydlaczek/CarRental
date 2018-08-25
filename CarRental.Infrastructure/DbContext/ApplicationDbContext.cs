@@ -12,13 +12,17 @@ namespace CarRental.Infrastructure.ApplicationDbContext
     {
         public IDbSet<CarReservation> CarReservation { get; set; }
         public IDbSet<CarType> CarType { get; set; }
-        public ApplicationContext():base("")
+        public ApplicationContext():base("CarRental")
         {
 
         }
-        public override Task<int> SaveChangesAsync()
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            return base.SaveChangesAsync();
+            base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<CarType>().HasMany(CarRental.Core.Domain.CarType.CarReservationeAccessor)
+                .WithRequired();
+
         }
     }
 }

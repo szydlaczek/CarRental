@@ -1,4 +1,7 @@
-﻿using CarRental.Core.Repositories;
+﻿using CarRental.Core.Domain;
+using CarRental.Core.Repositories;
+using CarRental.Core.Specifications;
+using CarRental.Infrastructure.ApplicationDbContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +12,14 @@ namespace CarRental.Infrastructure.Repositories
 {
     public class CarReservationRepository : ICarReservationRepository
     {
+        private readonly ApplicationContext _context;
+        public CarReservationRepository(ApplicationContext context)
+        {
+            _context = context;
+        }
+        public IEnumerable<CarType> Get(ISpecification<CarReservation> specification)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

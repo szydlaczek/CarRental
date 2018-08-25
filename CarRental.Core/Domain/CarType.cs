@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace CarRental.Core.Domain
 {
@@ -14,35 +13,27 @@ namespace CarRental.Core.Domain
         public int PassengerCount { get; private set; }
         public int NumberOfCars { get; private set; }
         public decimal DayPrice { get; private set; }
-        private readonly HashSet<CarReservation> carReservations = new HashSet<CarReservation>();
+        protected virtual ICollection<CarReservation> CarReservationStorage { get; set; }
+        public static Expression<Func<CarType, ICollection<CarReservation>>> CarReservationeAccessor = f => f.CarReservationStorage;
+
         public IEnumerable<CarReservation> CarReservations
         {
             get
             {
-                return this.carReservations;
+                return this.CarReservationStorage.Skip(0);
             }
         }
 
-        protected CarType() {  }
+        protected CarType()
+        {
+        }
+
         public CarType(string name, int capacity, int passengerCount, int numberOfCars, decimal dayPrice)
         {
             Name = name;
             Capacity = capacity;
             passengerCount = PassengerCount;
             NumberOfCars = numberOfCars;
-        }
-        public CreateCarReservationResult AddReservation(CarReservation carReservation)
-        {
-            var reservationsPerDay = this.carReservations
-                .Where(c => c.ReservationDate.Date == carReservation.ReservationDate.Date && c.CarType.Id==this.Id)
-                .Count(); ;
-            if (reservationsPerDay < this.NumberOfCars)
-            {
-                carReservations.Add(carReservation);
-                return CreateCarReservationResult.Success;
-            }
-            else
-                return CreateCarReservationResult.MaxCarPerDayExExceeded;   
         }
     }
 }

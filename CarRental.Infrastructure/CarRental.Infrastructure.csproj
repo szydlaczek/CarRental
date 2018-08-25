@@ -98,6 +98,7 @@
     <Compile Include="Handlers\Query\Car\CarTypesListQueryHandler.cs" />
     <Compile Include="IOC\Modules\CommandModule.cs" />
     <Compile Include="IOC\Modules\ContainerModule.cs" />
+    <Compile Include="IOC\Modules\DbContextModule.cs" />
     <Compile Include="IOC\Modules\QueryModule.cs" />
     <Compile Include="IOC\Modules\RepositoryModule.cs" />
     <Compile Include="IOC\Modules\ServiceModule.cs" />
@@ -110,8 +111,12 @@
     <Compile Include="Query\QueryDispatcher.cs" />
     <Compile Include="Repositories\CarReservationRepository.cs" />
     <Compile Include="Repositories\CarTypeRepository.cs" />
-    <Compile Include="Services\CarReservationService.cs" />
-    <Compile Include="Services\ICarReservationService.cs" />
+    <Compile Include="Services\CarReservation\CarReservation.cs" />
+    <Compile Include="Services\CarReservation\CarReservationCreateor.cs" />
+    <Compile Include="Services\CarReservation\CarReservationProcess.cs" />
+    <Compile Include="Services\CarReservation\CarReservationService.cs" />
+    <Compile Include="Services\CarReservation\CarReservationDbValidator.cs" />
+    <Compile Include="Services\CarReservation\ICarReservationService.cs" />
     <Compile Include="Services\IService.cs" />
     <Compile Include="Validation\CarReservationValidator.cs" />
     <Compile Include="ViewModel\CarReservationViewModel.cs" />

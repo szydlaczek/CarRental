@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using CarRental.Infrastructure.Services;
+using CarRental.Infrastructure.Services.CarReservation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,14 @@ namespace CarRental.Infrastructure.IOC.Modules
         protected override void Load(ContainerBuilder builder)
         {
             var assembly = typeof(ServiceModule).GetTypeInfo().Assembly;
+            //builder.RegisterAssemblyTypes(assembly)
+            //    .Where(x => x.IsAssignableTo<IService>())
+            //    .AsSelf()
+            //    .InstancePerLifetimeScope();
+
             builder.RegisterAssemblyTypes(assembly)
-                .Where(x => x.IsAssignableTo<IService>())
-                .AsImplementedInterfaces()
-                .InstancePerLifetimeScope();
+            .Where(t => t.IsSubclassOf(typeof(CarReservation)))
+            .AsSelf();
         }
     }
 }

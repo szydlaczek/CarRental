@@ -1,6 +1,8 @@
 ﻿using CarRental.Infrastructure.Command;
 using CarRental.Infrastructure.Command.CarReservation;
 using CarRental.Infrastructure.Services;
+
+using CarRental.Infrastructure.Services.CarReservation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +13,15 @@ namespace CarRental.Infrastructure.Handlers.Car
 {
     public class CreateCarReservationHandler : ICommandHandler<CreateCarReservation>
     {
-        private readonly ICarReservationService _carReservationService;
-        public CreateCarReservationHandler(ICarReservationService carReservationService)
+        public readonly ICarReservationService _carReservation;
+        public CreateCarReservationHandler(ICarReservationService carReservation)
         {
-            _carReservationService = carReservationService;
+            _carReservation = carReservation;
         }
         public async Task<CommandResult> HandleAsync(CreateCarReservation Command)
         {
-           return  new CommandResult();
+            return await _carReservation.AddCarReservation(Command);
+            
         }
     }
 }

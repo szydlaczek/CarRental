@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Infrastructure.Command.CarReservation
 {
-    public class CreateCarReservation : ICommand, IQueryResult, IQuery
+    public class CreateCarReservation : ICommand
     {
     }
 }
