@@ -4,14 +4,12 @@ using System.Linq.Expressions;
 
 namespace CarRental.Core.Specifications.CarReservationSpecifications
 {
-    public class DateSpecification : ISpecification<CarReservation>
+    public class DateSpecification : ISpecification<CarReservationEntity>
     {
-
         public DateSpecification(int id, DateTime date)
         {
-
         }
 
-        public Expression<Func<CarReservation, bool>> IsSatisfiedBy { get; }
+        public Expression<Func<CarReservationEntity, bool>> IsSatisfiedBy { get; }
     }
 }

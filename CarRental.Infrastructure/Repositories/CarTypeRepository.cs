@@ -17,16 +17,16 @@ namespace CarRental.Infrastructure.Repositories
         {
             _context = context;
         }
-        public IEnumerable<CarType> Get(ISpecification<CarType> specification)
+        public IEnumerable<CarTypeEntity> Get(ISpecification<CarTypeEntity> specification)
         {
-            return _context.Set<CarType>()
+            return _context.Set<CarTypeEntity>()
                 .Where(specification.IsSatisfiedBy)
                 .AsEnumerable();
         }
 
-        public CarType GetCarTypeById(int id)
+        public CarTypeEntity GetCarTypeById(int id)
         {
-            return _context.Set<CarType>().Where(d => d.Id == id).FirstOrDefault();
+            return _context.Set<CarTypeEntity>().Where(d => d.CarTypeId == id).FirstOrDefault();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace CarRental.Infrastructure.Repositories
         {
             _context = context;
         }
-        public IEnumerable<CarType> Get(ISpecification<CarReservation> specification)
+        public IEnumerable<CarTypeEntity> Get(ISpecification<CarReservationEntity> specification)
         {
             throw new NotImplementedException();
         }

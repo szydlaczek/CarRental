@@ -1,22 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Linq.Expressions;
 
 namespace CarRental.Core.Domain
 {
-    public class CarType : Entity<int>
+    [Table(name: "CarType")]
+    public class CarTypeEntity
     {
-        public int Id { get; private set; }
+        [Key]
+        public int CarTypeId { get; private set; }
+
         public string Name { get; private set; }
         public int Capacity { get; private set; }
         public int PassengerCount { get; private set; }
         public int NumberOfCars { get; private set; }
         public decimal DayPrice { get; private set; }
-        protected virtual ICollection<CarReservation> CarReservationStorage { get; set; }
-        public static Expression<Func<CarType, ICollection<CarReservation>>> CarReservationeAccessor = f => f.CarReservationStorage;
+        protected virtual ICollection<CarReservationEntity> CarReservationStorage { get; set; }
+        public static Expression<Func<CarTypeEntity, ICollection<CarReservationEntity>>> CarReservationeAccessor = f => f.CarReservationStorage;
 
-        public IEnumerable<CarReservation> CarReservations
+        public IEnumerable<CarReservationEntity> CarReservations
         {
             get
             {
@@ -24,16 +29,28 @@ namespace CarRental.Core.Domain
             }
         }
 
-        protected CarType()
+        protected CarTypeEntity()
         {
         }
 
-        public CarType(string name, int capacity, int passengerCount, int numberOfCars, decimal dayPrice)
+        public CarTypeEntity(string name, int capacity, int passengerCount, int numberOfCars, decimal dayPrice)
         {
             Name = name;
             Capacity = capacity;
             passengerCount = PassengerCount;
             NumberOfCars = numberOfCars;
+        }
+
+        public CreateCarReservationResult AddCarReservation(CarReservationEntity reservation)
+        {
+            var reservationCount = this.CarReservationStorage.Where(c => c.ReservationDate.Date == reservation.ReservationDate.Date).Count();
+            if (reservationCount < this.NumberOfCars)
+            {
+                CarReservationStorage.Add(reservation);
+                return CreateCarReservationResult.Success;
+            }
+            else
+                return CreateCarReservationResult.MaxCarPerDayExceeded;
         }
     }
 }

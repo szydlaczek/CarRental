@@ -9,5 +9,6 @@ namespace CarRental.Infrastructure.Command.CarReservation
 {
     public class CreateCarReservation : ICommand
     {
+        public int CarTypeId { get; set; }
     }
 }
