@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace CarRental.Infrastructure.Query
@@ -11,11 +8,10 @@ namespace CarRental.Infrastructure.Query
         where TParameter : IQuery
     {
         Task<TResult> Retrieve(TParameter query);
-
     }
-    public interface IQueryHandler<TResult>  where TResult : IQueryResult
+
+    public interface IQueryHandler<TResult> where TResult : IQueryResult
     {
         Task<IEnumerable<TResult>> RetrievieAll();
     }
-
 }

@@ -2,17 +2,17 @@
 
 namespace CarRental.Web.Areas.CarReservation
 {
-    public class CarReservationAreaRegistration : AreaRegistration 
+    public class CarReservationAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "CarReservation";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "CarReservation_default",

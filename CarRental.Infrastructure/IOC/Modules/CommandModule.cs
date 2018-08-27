@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using CarRental.Infrastructure.Command;
+using System.Reflection;
 
 namespace CarRental.Infrastructure.IOC.Modules
 {
@@ -22,7 +17,6 @@ namespace CarRental.Infrastructure.IOC.Modules
             builder.RegisterType<CommandDispatcher>()
                  .As<ICommandDispatcher>()
                  .InstancePerLifetimeScope();
-
         }
     }
 }

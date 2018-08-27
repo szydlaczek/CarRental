@@ -2,14 +2,11 @@
 
 using CarRental.Core.Specifications.CarType;
 using CarRental.Infrastructure.Command;
-using CarRental.Infrastructure.Command.CarReservation;
 using CarRental.Infrastructure.EFDbContext;
 
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CarRental.Infrastructure.Services.CarReservation
@@ -17,12 +14,14 @@ namespace CarRental.Infrastructure.Services.CarReservation
     public class CarReservationProcess : ICarReservationProcess, IService
     {
         private readonly IDbContext _context;
+
         public CarReservationProcess(IDbContext context)
         {
             _context = context;
         }
-        public async Task<CommandResult> MakeReservation(int carTypeId, string name, 
-            string phoneNumber, string postCode, 
+
+        public async Task<CommandResult> MakeReservation(int carTypeId, string name,
+            string phoneNumber, string postCode,
             string city, string street,
             DateTime dateReservation)
         {
@@ -34,8 +33,8 @@ namespace CarRental.Infrastructure.Services.CarReservation
                     Message = "Car Type doesnt exists"
                 };
             var carReservation = new CarReservationEntity(carTypeId, city, postCode, street, phoneNumber, name);
-            var result=carType.AddCarReservation(carReservation);
-            
+            var result = carType.AddCarReservation(carReservation);
+
             if (result == CreateCarReservationResult.MaxCarPerDayExceeded)
                 return new CommandResult
                 {
@@ -51,8 +50,6 @@ namespace CarRental.Infrastructure.Services.CarReservation
                     Message = $"Rezerwacja zakończona, dziękujemy"
                 };
             }
-
-                
         }
     }
 }
