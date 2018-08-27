@@ -1,30 +1,32 @@
 ﻿using CarRental.Core.Domain;
-using CarRental.Core.Repositories;
+
+using CarRental.Core.Specifications.CarType;
 using CarRental.Infrastructure.Command;
 using CarRental.Infrastructure.Command.CarReservation;
+using CarRental.Infrastructure.EFDbContext;
+
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CarRental.Infrastructure.Services.CarReservation
 {
-    public class CarReservationProcess : IService
+    public class CarReservationProcess : ICarReservationProcess, IService
     {
-        private readonly ICarTypeRepository _carTypeRepository;
-        
-        public CarReservationProcess(ICarTypeRepository carTypeRepository)
+        private readonly IDbContext _context;
+        public CarReservationProcess(IDbContext context)
         {
-            _carTypeRepository = carTypeRepository;
-            
+            _context = context;
         }
         public async Task<CommandResult> MakeReservation(int carTypeId, string name, 
             string phoneNumber, string postCode, 
             string city, string street,
             DateTime dateReservation)
         {
-            var carType = await _carTypeRepository.GetCarTypeById(carTypeId);
+            var carType = await _context.CarType.Where(new CarTypeSpecificationById(carTypeId).Condition).FirstOrDefaultAsync();
             if (carType == null)
                 return new CommandResult
                 {
@@ -42,6 +44,7 @@ namespace CarRental.Infrastructure.Services.CarReservation
                 };
             else
             {
+                await _context.SaveChangesAsync();
                 return new CommandResult
                 {
                     Success = true,

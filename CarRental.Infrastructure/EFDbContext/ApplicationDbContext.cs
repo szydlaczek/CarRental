@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using CarRental.Core.Domain;
+using CarRental.Infrastructure.EFDbContext;
 
 namespace CarRental.Infrastructure.ApplicationDbContext
 {
-    public class ApplicationContext : DbContext
+    public class ApplicationContext : DbContext, IDbContext
     {
         public IDbSet<CarReservationEntity> CarReservation { get; set; }
         public IDbSet<CarTypeEntity> CarType { get; set; }
@@ -18,11 +19,10 @@ namespace CarRental.Infrastructure.ApplicationDbContext
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            
             base.OnModelCreating(modelBuilder);
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<CarTypeEntity>().HasMany(CarRental.Core.Domain.CarTypeEntity.CarReservationeAccessor)
+            modelBuilder.Entity<CarTypeEntity>().HasMany(CarTypeEntity.CarReservationeAccessor)
                 .WithRequired();
-
         }
     }
 }

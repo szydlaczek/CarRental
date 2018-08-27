@@ -14,8 +14,8 @@ namespace CarRental.Infrastructure.Handlers.Car
 {
     public class CreateCarReservationHandler : ICommandHandler<CreateCarReservation>
     {
-        private readonly CarReservationProcess _carReservationProcess;
-        public CreateCarReservationHandler(CarReservationProcess carReservationProcess)
+        private readonly ICarReservationProcess _carReservationProcess;
+        public CreateCarReservationHandler(ICarReservationProcess carReservationProcess)
         {
             _carReservationProcess = carReservationProcess;
         }

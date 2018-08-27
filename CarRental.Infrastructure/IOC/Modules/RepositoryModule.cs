@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using CarRental.Core.Repositories;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +15,10 @@ namespace CarRental.Infrastructure.IOC.Modules
         {
             var assembly = typeof(RepositoryModule).GetTypeInfo().Assembly;
 
-            builder.RegisterAssemblyTypes(assembly)
-                .Where(x => x.IsAssignableTo<IRepository>())
-                .AsImplementedInterfaces()
-                .InstancePerLifetimeScope();
+            //builder.RegisterAssemblyTypes(assembly)
+            //    .Where(x => x.IsAssignableTo<IRepository>())
+            //    .AsImplementedInterfaces()
+            //    .InstancePerLifetimeScope();
 
         }
     }

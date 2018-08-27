@@ -5,6 +5,6 @@ namespace CarRental.Core.Specifications
 {
     public interface ISpecification<T>
     {
-        Expression<Func<T, bool>> IsSatisfiedBy { get; }
+        Expression<Func<T, bool>> Condition { get; }
     }
 }

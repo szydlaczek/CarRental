@@ -93,7 +93,8 @@
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Command\ICommandDispatcher.cs" />
     <Compile Include="Command\ICommandHandler.cs" />
-    <Compile Include="DbContext\ApplicationDbContext.cs" />
+    <Compile Include="EFDbContext\ApplicationDbContext.cs" />
+    <Compile Include="EFDbContext\IDbContext.cs" />
     <Compile Include="Handlers\Command\Car\CreateCarReservationCommandHandler.cs" />
     <Compile Include="Handlers\Query\Car\CarTypesListQueryHandler.cs" />
     <Compile Include="IOC\Modules\CommandModule.cs" />
@@ -109,11 +110,8 @@
     <Compile Include="Query\IQueryHandler.cs" />
     <Compile Include="Query\IQueryResult.cs" />
     <Compile Include="Query\QueryDispatcher.cs" />
-    <Compile Include="Repositories\CarReservationRepository.cs" />
-    <Compile Include="Repositories\CarTypeRepository.cs" />
     <Compile Include="Services\CarReservation\CarReservationProcess.cs" />
-    <Compile Include="Services\CarType\CarTypeProvider.cs" />
-    <Compile Include="Services\CarType\ICarTypeProvider.cs" />
+    <Compile Include="Services\CarReservation\ICarReservationProcess.cs" />
     <Compile Include="Services\IService.cs" />
     <Compile Include="Validation\CarReservationValidator.cs" />
     <Compile Include="ViewModel\CarReservationViewModel.cs" />
@@ -121,6 +119,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTO\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Services\CarType\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
