@@ -8,6 +8,6 @@ namespace CarRental.Infrastructure.Command
 {
     public interface ICommandHandler<TParameter> where TParameter : ICommand
     {
-        Task<CommandResult> HandleAsync(TParameter Command);
+        Task<CommandResult> HandleAsync(TParameter command);
     }
 }

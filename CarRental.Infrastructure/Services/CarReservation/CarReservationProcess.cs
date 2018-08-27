@@ -19,12 +19,12 @@ namespace CarRental.Infrastructure.Services.CarReservation
             _carTypeRepository = carTypeRepository;
             
         }
-        public CommandResult MakeReservation(int carTypeId, string name, 
+        public async Task<CommandResult> MakeReservation(int carTypeId, string name, 
             string phoneNumber, string postCode, 
             string city, string street,
             DateTime dateReservation)
         {
-            var carType = _carTypeRepository.GetCarTypeById(carTypeId);
+            var carType = await _carTypeRepository.GetCarTypeById(carTypeId);
             if (carType == null)
                 return new CommandResult
                 {
@@ -38,13 +38,13 @@ namespace CarRental.Infrastructure.Services.CarReservation
                 return new CommandResult
                 {
                     Success = false,
-                    Message = $"Typ pojazdu niedostępny dniu {dateReservation.Date} "
+                    Message = $"Typ pojazdu niedostępny w dniu {dateReservation.Date} "
                 };
             else
             {
                 return new CommandResult
                 {
-                    Success = false,
+                    Success = true,
                     Message = $"Rezerwacja zakończona, dziękujemy"
                 };
             }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CarRental.Core.Repositories
 {
-    public interface ICarReservationRepository
+    public interface ICarReservationRepository : IRepository
     {
         IEnumerable<CarTypeEntity> Get(ISpecification<CarReservationEntity> specification);
     }

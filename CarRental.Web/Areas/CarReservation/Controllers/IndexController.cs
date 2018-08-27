@@ -25,8 +25,8 @@ namespace CarRental.Web.Controllers
         }
         public async Task<ActionResult> Index()
         {
-            var re = await CommandDispatcher.DispatchAsync<CreateCarReservation>(new CreateCarReservation());
-
+            //var re = await CommandDispatcher.DispatchAsync<CreateCarReservation>(new CreateCarReservation());
+            var r = QueryDispatcher.DispatchAll<CarTypeViewModel>();
             return View();
 
         }

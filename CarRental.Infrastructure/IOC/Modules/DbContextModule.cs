@@ -13,10 +13,10 @@ namespace CarRental.Infrastructure.IOC.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            var assembly = typeof(ApplicationContext).GetTypeInfo().Assembly;
+            
 
-            builder.RegisterAssemblyTypes(assembly)
-                .AsSelf();              
+            builder.RegisterType<ApplicationContext>().AsSelf().InstancePerRequest();
+                              
 
         }
     }

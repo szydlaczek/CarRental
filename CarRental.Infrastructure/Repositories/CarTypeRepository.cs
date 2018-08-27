@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CarRental.Infrastructure.ApplicationDbContext;
 using CarRental.Core.Specifications;
+using System.Data.Entity;
 
 namespace CarRental.Infrastructure.Repositories
 {
@@ -24,9 +25,14 @@ namespace CarRental.Infrastructure.Repositories
                 .AsEnumerable();
         }
 
-        public CarTypeEntity GetCarTypeById(int id)
+        public async Task<List<CarTypeEntity>> GetAllCarTypes()
         {
-            return _context.Set<CarTypeEntity>().Where(d => d.CarTypeId == id).FirstOrDefault();
+            return await _context.CarType.ToListAsync();
+        }
+
+        public async Task<CarTypeEntity> GetCarTypeById(int id)
+        {
+            return await _context.Set<CarTypeEntity>().Where(d => d.CarTypeId == id).FirstOrDefaultAsync();
         }
     }
 }

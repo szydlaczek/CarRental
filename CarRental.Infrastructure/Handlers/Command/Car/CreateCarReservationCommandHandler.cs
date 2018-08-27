@@ -14,15 +14,16 @@ namespace CarRental.Infrastructure.Handlers.Car
 {
     public class CreateCarReservationHandler : ICommandHandler<CreateCarReservation>
     {
-        
-        public CreateCarReservationHandler()
+        private readonly CarReservationProcess _carReservationProcess;
+        public CreateCarReservationHandler(CarReservationProcess carReservationProcess)
         {
-            
+            _carReservationProcess = carReservationProcess;
         }
-        public async Task<CommandResult> HandleAsync(CreateCarReservation Command)
-        {          
-
-
+        public async Task<CommandResult> HandleAsync(CreateCarReservation command)
+        {
+            CommandResult result = await _carReservationProcess.MakeReservation(command.CarTypeId,command.Name,
+                command.PhoneNumber, command.PostCode, command.City, command.Street, command.ReservationDate);
+            return result;
         }
     }
 }

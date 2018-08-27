@@ -15,14 +15,10 @@ namespace CarRental.Infrastructure.IOC.Modules
         protected override void Load(ContainerBuilder builder)
         {
             var assembly = typeof(ServiceModule).GetTypeInfo().Assembly;
-            //builder.RegisterAssemblyTypes(assembly)
-            //    .Where(x => x.IsAssignableTo<IService>())
-            //    .AsSelf()
-            //    .InstancePerLifetimeScope();
-
             builder.RegisterAssemblyTypes(assembly)
-            .Where(t => t.IsSubclassOf(typeof(CarReservation)))
-            .AsSelf();
+                .Where(x => x.IsAssignableTo<IService>())
+                .AsImplementedInterfaces()
+                .InstancePerLifetimeScope();
         }
     }
 }

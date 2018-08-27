@@ -112,7 +112,8 @@
     <Compile Include="Repositories\CarReservationRepository.cs" />
     <Compile Include="Repositories\CarTypeRepository.cs" />
     <Compile Include="Services\CarReservation\CarReservationProcess.cs" />
-    <Compile Include="Services\CarReservation\IHandler.cs" />
+    <Compile Include="Services\CarType\CarTypeProvider.cs" />
+    <Compile Include="Services\CarType\ICarTypeProvider.cs" />
     <Compile Include="Services\IService.cs" />
     <Compile Include="Validation\CarReservationValidator.cs" />
     <Compile Include="ViewModel\CarReservationViewModel.cs" />

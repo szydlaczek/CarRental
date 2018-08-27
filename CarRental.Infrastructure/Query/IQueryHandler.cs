@@ -15,7 +15,7 @@ namespace CarRental.Infrastructure.Query
     }
     public interface IQueryHandler<TResult>  where TResult : IQueryResult
     {
-        Task<List<TResult>> RetrievieAll();
+        Task<IEnumerable<TResult>> RetrievieAll();
     }
 
 }
