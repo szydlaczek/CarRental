@@ -13,7 +13,7 @@ namespace CarRental.Infrastructure.IOC.Modules
             builder.RegisterAssemblyTypes(assembly)
                 .Where(x => x.IsAssignableTo<IService>())
                 .AsImplementedInterfaces()
-                .InstancePerLifetimeScope();
+                .InstancePerRequest();
         }
     }
 }

@@ -7,7 +7,7 @@ namespace CarRental.Infrastructure.IOC.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<ApplicationContext>().AsSelf().InstancePerRequest();
+            builder.RegisterType<ApplicationContext>().AsImplementedInterfaces().InstancePerRequest();
         }
     }
 }
