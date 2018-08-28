@@ -7,11 +7,7 @@ namespace CarRental.Infrastructure.EFDbContext
 {
     public interface IDbContext : IDisposable
     {
-        IDbSet<CarReservationEntity> CarReservation { get; set; }
-        IDbSet<CarTypeEntity> CarType { get; set; }
-
-        int SaveChanges();
-
+        DbSet<TEntity> Set<TEntity>() where TEntity : class; 
         Task<int> SaveChangesAsync();
     }
 }

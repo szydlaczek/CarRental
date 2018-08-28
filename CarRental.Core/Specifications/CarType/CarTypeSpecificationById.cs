@@ -8,7 +8,7 @@ namespace CarRental.Core.Specifications.CarType
     {
         public CarTypeSpecificationById(int id)
         {
-            Condition = c => c.CarTypeId == id;
+            Condition = c => c.Id == id;
         }
 
         public Expression<Func<CarTypeEntity, bool>> Condition { get; }

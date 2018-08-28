@@ -15,5 +15,9 @@ namespace CarRental.Web.Controllers
             CommandDispatcher = commandDispatcher;
             QueryDispatcher = queryDispatcher;
         }
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            base.OnException(filterContext);
+        }
     }
 }

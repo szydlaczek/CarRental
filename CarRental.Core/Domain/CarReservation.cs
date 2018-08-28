@@ -8,8 +8,9 @@ namespace CarRental.Core.Domain
     {
         public DateTime ReservationDate { get; private set; }
         public long Id { get; private set; }
-        public virtual CarTypeEntity CarType { get; private set; }
-        public int CarTypeId { get; private set; }
+        //public  CarTypeEntity CarTypeEntity { get; private set; }
+        //[ForeignKey("CarTypeEntity")]
+        //public int CarTypeId { get; private set; }
         public string Name { get; private set; }
         public string PhoneNumber { get; private set; }
         public string City { get; private set; }
@@ -20,7 +21,7 @@ namespace CarRental.Core.Domain
             string postCode, string street,
             string phoneNumber, string name)
         {
-            CarTypeId = carTypeId;
+            //CarTypeId = carTypeId;
             City = city;
             PostCode = PostCode;
             Street = street;

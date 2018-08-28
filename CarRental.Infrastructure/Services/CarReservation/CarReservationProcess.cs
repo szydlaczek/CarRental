@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Infrastructure.Services.CarReservation
 {
-    public class CarReservationProcess : ICarReservationProcess, IService
+    public class CarReservationProcess : ICarReservationProcess
     {
         private readonly IDbContext _context;
 
@@ -25,7 +25,7 @@ namespace CarRental.Infrastructure.Services.CarReservation
             string city, string street,
             DateTime dateReservation)
         {
-            var carType = await _context.CarType.Where(new CarTypeSpecificationById(carTypeId).Condition).FirstOrDefaultAsync();
+            var carType = await _context.Set<CarTypeEntity>().Where(new CarTypeSpecificationById(carTypeId).Condition).FirstOrDefaultAsync();
             if (carType == null)
                 return new CommandResult
                 {

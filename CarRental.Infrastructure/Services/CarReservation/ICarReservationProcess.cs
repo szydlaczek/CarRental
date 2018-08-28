@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Infrastructure.Services.CarReservation
 {
-    public interface ICarReservationProcess
+    public interface ICarReservationProcess : IService
     {
         Task<CommandResult> MakeReservation(int carTypeId, string name,
             string phoneNumber, string postCode,

@@ -10,6 +10,6 @@ namespace CarRental.Infrastructure.Command.CarReservation
         public string City { get; set; }
         public string PostCode { get; set; }
         public string Street { get; set; }
-        public DateTime ReservationDate { get; set; }
+        public DateTime ReservationDate { get; set; } = DateTime.Now;
     }
 }
