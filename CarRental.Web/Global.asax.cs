@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using CarRental.Infrastructure.IOC.Modules;
+using FluentValidation.Mvc;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -12,7 +13,7 @@ namespace CarRental.Web
         protected void Application_Start()
         {
             ConfigureContainer();
-            //FluentValidationModelValidatorProvider.Configure();
+            FluentValidationModelValidatorProvider.Configure();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

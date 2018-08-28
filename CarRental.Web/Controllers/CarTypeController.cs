@@ -27,6 +27,7 @@ namespace CarRental.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateCarReservation(CreateCarReservation command)
         {
+            if (ModelState.IsValid)
             ViewBag.CarTypeList = await QueryDispatcher.DispatchAll<CarTypeViewModel>();
             return View();
         }

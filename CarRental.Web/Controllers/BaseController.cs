@@ -4,6 +4,7 @@ using System.Web.Mvc;
 
 namespace CarRental.Web.Controllers
 {
+    
     public abstract class BaseController : Controller
     {
         protected readonly ICommandDispatcher CommandDispatcher;
