@@ -16,12 +16,19 @@ namespace CarRental.Web.Controllers
         }
         public ActionResult Index()
         {
-            return RedirectToAction("CreateReservation");
+            return RedirectToAction("CreateCarReservation");
         }
-        public async Task<ActionResult> CreateReservation()
+        public async Task<ActionResult> CreateCarReservation()
         {            
             ViewBag.CarTypeList = await QueryDispatcher.DispatchAll<CarTypeViewModel>();
             return View(new CreateCarReservation());
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CreateCarReservation(CreateCarReservation command)
+        {
+            ViewBag.CarTypeList = await QueryDispatcher.DispatchAll<CarTypeViewModel>();
+            return View();
         }
 
     }

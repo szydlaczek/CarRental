@@ -20,7 +20,8 @@ namespace CarRental.Tests
         {
             var data = new List<CarTypeEntity>
             {
-                new CarTypeEntity("Test", 200, 5, 2, 200)
+                
+                
 
             }.AsQueryable();
             
