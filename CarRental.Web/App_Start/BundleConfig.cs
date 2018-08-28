@@ -12,6 +12,15 @@ namespace CarRental.Web
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
+            bundles.Add(new StyleBundle("~/Content/pickadatecss").Include(
+                        "~/Content/pickadate/themes/classic.css",
+                        "~/Content/pickadate/themes/classic.date.css",
+                        "~/Content/pickadate/themes/classic.time.css",
+                        "~/Content/pickadate/themes/default.date.css",
+                        "~/Content/pickadate/themes/default.time.css",
+                        "~/Content/pickadate/themes/custom.css",
+                        "~/Content/pickatime/pickatime.css",
+                        "~/Content/pickatime/style.css"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.

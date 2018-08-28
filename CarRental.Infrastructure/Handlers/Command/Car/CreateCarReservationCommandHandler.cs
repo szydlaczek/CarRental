@@ -2,6 +2,7 @@
 using CarRental.Infrastructure.Command.CarReservation;
 
 using CarRental.Infrastructure.Services.CarReservation;
+using System;
 using System.Threading.Tasks;
 
 namespace CarRental.Infrastructure.Handlers.Car
@@ -18,7 +19,7 @@ namespace CarRental.Infrastructure.Handlers.Car
         public async Task<CommandResult> HandleAsync(CreateCarReservation command)
         {
             CommandResult result = await _carReservationProcess.MakeReservation(command.CarTypeId, command.Name,
-                command.PhoneNumber, command.PostCode, command.City, command.Street, command.ReservationDate);
+                command.PhoneNumber, command.PostCode, command.City, command.Street, command.GetReservationDate());
             return result;
         }
     }

@@ -3,7 +3,7 @@ using System;
 //using System.ComponentModel.DataAnnotations;
 using FluentValidation;
 using FluentValidation.Attributes;
-using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
 namespace CarRental.Infrastructure.Command.CarReservation
 {
@@ -21,8 +21,14 @@ namespace CarRental.Infrastructure.Command.CarReservation
         public string PostCode { get; set; }
         
         public string Street { get; set; }
-        [DataType(DataType.Date)]
-        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
-        public DateTime ReservationDate { get; set; } = DateTime.Now;
+        
+        public string ReservationDate { get; set; }
+        
+        public DateTime GetReservationDate()
+        {
+            DateTime date;
+            DateTime.TryParseExact(this.ReservationDate, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out date);
+            return date;
+        }
     }
 }
