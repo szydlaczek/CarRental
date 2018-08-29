@@ -50,8 +50,6 @@
     <Compile Include="Specifications\CarType\CarTypeSpecificationById.cs" />
     <Compile Include="Specifications\ISpecification.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Specifications\CarReservation\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

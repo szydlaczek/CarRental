@@ -30,16 +30,16 @@ namespace CarRental.Web
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
+
         protected void Application_Error()
         {
-            HttpContext httpContext = HttpContext.Current;           
+            HttpContext httpContext = HttpContext.Current;
 
             if (httpContext != null)
             {
-                RequestContext requestContext = ((MvcHandler)httpContext.CurrentHandler).RequestContext;                              
-               
+                RequestContext requestContext = ((MvcHandler)httpContext.CurrentHandler).RequestContext;
+
                 httpContext.Response.Redirect("/Error/NoPageFound");
-                
             }
         }
     }

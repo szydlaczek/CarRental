@@ -12,6 +12,7 @@ namespace CarRental.Core.Domain
     {
         [Key]
         public int Id { get; private set; }
+
         public string Name { get; private set; }
         public int Capacity { get; private set; }
         public int PassengerCount { get; private set; }

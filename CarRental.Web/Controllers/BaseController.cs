@@ -4,7 +4,6 @@ using System.Web.Mvc;
 
 namespace CarRental.Web.Controllers
 {
-    
     public abstract class BaseController : Controller
     {
         protected readonly ICommandDispatcher CommandDispatcher;
@@ -16,6 +15,7 @@ namespace CarRental.Web.Controllers
             CommandDispatcher = commandDispatcher;
             QueryDispatcher = queryDispatcher;
         }
+
         protected override void OnException(ExceptionContext filterContext)
         {
             base.OnException(filterContext);

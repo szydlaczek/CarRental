@@ -1,18 +1,16 @@
-﻿using Xunit;
-using Moq;
-using CarRental.Infrastructure.Handlers.Query.Car;
-using CarRental.Infrastructure.ApplicationDbContext;
+﻿using CarRental.Core.Domain;
 using CarRental.Infrastructure.EFDbContext;
-using CarRental.Core.Domain;
-using System.Data.Entity;
+using CarRental.Infrastructure.Handlers.Query.Car;
+using Moq;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Data.Entity.Infrastructure;
+using Xunit;
 
 namespace CarRental.Tests
 {
-    
     public class QueryHandlerTest
     {
         [Fact]
@@ -20,11 +18,8 @@ namespace CarRental.Tests
         {
             var data = new List<CarTypeEntity>
             {
-                
-                
-
             }.AsQueryable();
-            
+
             var mockSet = new Mock<DbSet<CarTypeEntity>>();
             mockSet.As<IDbAsyncEnumerable<CarTypeEntity>>()
                 .Setup(m => m.GetAsyncEnumerator())
@@ -39,11 +34,10 @@ namespace CarRental.Tests
 
             var mockcontext = new Mock<IDbContext>();
             mockcontext.Setup(m => m.Set<CarTypeEntity>()).Returns(mockSet.Object);
-           
+
             CarTypesListQueryHandler query = new CarTypesListQueryHandler(mockcontext.Object);
             var result = await query.RetrievieAll();
             Assert.Single(result);
-
         }
     }
 }

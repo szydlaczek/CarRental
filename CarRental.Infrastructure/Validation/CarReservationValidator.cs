@@ -1,9 +1,7 @@
 ﻿using CarRental.Infrastructure.Command.CarReservation;
 using CarRental.Infrastructure.Converters;
-using CarRental.Infrastructure.ViewModels;
 using FluentValidation;
 using System;
-using System.Globalization;
 
 namespace CarRental.Infrastructure.Validation
 {
@@ -16,7 +14,7 @@ namespace CarRental.Infrastructure.Validation
                 .NotNull()
                 .WithMessage("To pole jest wymagane");
 
-            RuleFor(x=>x.Name)
+            RuleFor(x => x.Name)
                 .NotNull()
                 .WithMessage("To pole jest wymagane");
 
@@ -44,15 +42,17 @@ namespace CarRental.Infrastructure.Validation
                 .Must(BeFutureDate)
                 .WithMessage("Podaj późniejszą datę");
         }
+
         private bool BeValidDate(string value)
         {
             DateTime date;
             return DateFromString.Convert(value, out date);
         }
+
         private bool BeFutureDate(string value)
         {
             DateTime date;
-            
+
             DateFromString.Convert(value, out date);
             if (date <= DateTime.Now.Date)
                 return false;

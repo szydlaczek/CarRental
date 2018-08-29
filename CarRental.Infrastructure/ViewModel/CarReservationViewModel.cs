@@ -4,6 +4,5 @@ namespace CarRental.Infrastructure.ViewModels
 {
     public class CarReservationViewModel : ICommand
     {
-
     }
 }

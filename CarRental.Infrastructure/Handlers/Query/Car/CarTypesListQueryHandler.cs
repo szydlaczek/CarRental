@@ -14,6 +14,7 @@ namespace CarRental.Infrastructure.Handlers.Query.Car
     public class CarTypesListQueryHandler : IQueryHandler<CarTypeViewModel>, IQueryHandler<CarTypeQuery, CarTypeViewModel>
     {
         private readonly IDbContext _context;
+
         public CarTypesListQueryHandler(IDbContext context)
         {
             _context = context;
@@ -26,7 +27,7 @@ namespace CarRental.Infrastructure.Handlers.Query.Car
 
         public async Task<IEnumerable<CarTypeViewModel>> RetrievieAll()
         {
-            return await _context.Set<CarTypeEntity>().Select(s => new CarTypeViewModel { Id=s.Id, Name=s.Name }).ToListAsync();            
+            return await _context.Set<CarTypeEntity>().Select(s => new CarTypeViewModel { Id = s.Id, Name = s.Name }).ToListAsync();
         }
     }
 }

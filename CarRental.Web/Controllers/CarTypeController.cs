@@ -2,7 +2,6 @@
 using CarRental.Infrastructure.Command.CarReservation;
 using CarRental.Infrastructure.Query;
 using CarRental.Infrastructure.ViewModel;
-using CarRental.Infrastructure.ViewModels;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -14,15 +13,17 @@ namespace CarRental.Web.Controllers
             : base(commandDispatcher, queryDispatcher)
         {
         }
+
         //public ActionResult Index()
         //{
         //    return RedirectToAction("CreateCarReservation");
         //}
         public async Task<ActionResult> CreateCarReservation()
-        {            
+        {
             ViewBag.CarTypeList = await QueryDispatcher.DispatchAll<CarTypeViewModel>();
             return View(new CreateCarReservation());
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateCarReservation(CreateCarReservation command)
@@ -38,13 +39,12 @@ namespace CarRental.Web.Controllers
                     return View();
                 }
                 return View("ReservationSuccess");
-            }                
+            }
             else
             {
                 ViewBag.CarTypeList = await QueryDispatcher.DispatchAll<CarTypeViewModel>();
                 return View(command);
             }
         }
-
     }
 }

@@ -1,9 +1,11 @@
 ﻿@model CarRental.Infrastructure.Command.CarReservation.CreateCarReservation
 @{
-    ViewBag.Title = "Formularz rejestracji pojazdu";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+                /**/
+
+                ViewBag.Title = "Formularz rezerwacji pojazdu";
+                Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>Formularz rejestracji pojazdu</h1>
+<h1>Formularz rezerwacji pojazdu</h1>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -96,4 +98,3 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-

@@ -7,7 +7,7 @@ namespace CarRental.Core.Domain
     public class CarReservationEntity
     {
         public DateTime ReservationDate { get; private set; }
-        public long Id { get; private set; }        
+        public long Id { get; private set; }
         public string Name { get; private set; }
         public string PhoneNumber { get; private set; }
         public string City { get; private set; }
@@ -17,7 +17,7 @@ namespace CarRental.Core.Domain
         public CarReservationEntity(int carTypeId, string city,
             string postCode, string street,
             string phoneNumber, string name, DateTime date)
-        {           
+        {
             City = city;
             PostCode = postCode;
             Street = street;
@@ -25,6 +25,7 @@ namespace CarRental.Core.Domain
             Name = name;
             ReservationDate = date;
         }
+
         protected CarReservationEntity()
         {
         }

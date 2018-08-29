@@ -8,16 +8,16 @@ namespace CarRental.Infrastructure.ApplicationDbContext
     {
         public DbSet<CarReservationEntity> CarReservation { get; set; }
         public DbSet<CarTypeEntity> CarType { get; set; }
+
         public ApplicationContext() : base("CarRental")
         {
         }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<CarTypeEntity>().HasMany(CarTypeEntity.CarReservationeAccessor)
                 .WithRequired();
         }
-
-        
     }
 }

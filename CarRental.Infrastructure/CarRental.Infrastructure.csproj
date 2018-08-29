@@ -130,7 +130,6 @@
     <Compile Include="ViewModel\CarTypeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DTO\" />
     <Folder Include="Services\CarType\" />
   </ItemGroup>
   <ItemGroup>

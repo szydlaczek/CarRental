@@ -2,7 +2,6 @@
 using CarRental.Infrastructure.Command.CarReservation;
 
 using CarRental.Infrastructure.Services.CarReservation;
-using System;
 using System.Threading.Tasks;
 
 namespace CarRental.Infrastructure.Handlers.Car
