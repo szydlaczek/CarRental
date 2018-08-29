@@ -11,15 +11,10 @@ namespace CarRental.Infrastructure.Validation
     {
         public CarReservationValidator()
         {
+            RuleFor(x => x.CarTypeId).NotEmpty().WithMessage("Wybierz typ pojazdu");
             RuleFor(x => x.City)
                 .NotNull()
                 .WithMessage("To pole jest wymagane");
-
-            //RuleFor(x => x.CarTypeId)
-            //    .GreaterThan(0)
-            //    .WithMessage("Wybierz typ pojazdu")
-            //    .NotNull()
-            //    .WithMessage("To pole jest wymagane");
 
             RuleFor(x=>x.Name)
                 .NotNull()
@@ -45,8 +40,9 @@ namespace CarRental.Infrastructure.Validation
                 .NotNull()
                 .WithMessage("To pole jest wymagane")
                 .Must(BeValidDate)
-                .WithMessage("Podaj datę w formacie yyyy-mm-dd");               
-
+                .WithMessage("Podaj datę w formacie yyyy-mm-dd")
+                .Must(BeFutureDate)
+                .WithMessage("Podaj późniejszą datę");
         }
         private bool BeValidDate(string value)
         {

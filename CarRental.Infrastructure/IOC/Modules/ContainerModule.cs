@@ -6,8 +6,7 @@ namespace CarRental.Infrastructure.IOC.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterModule<ServiceModule>();
-            builder.RegisterModule<RepositoryModule>();
+            builder.RegisterModule<ServiceModule>();            
             builder.RegisterModule<CommandModule>();
             builder.RegisterModule<QueryModule>();
             builder.RegisterModule<DbContextModule>();

@@ -12,7 +12,7 @@ namespace CarRental.Web
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "CarType", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "CarType", action = "CreateCarReservation", id = UrlParameter.Optional }
             );
         }
     }

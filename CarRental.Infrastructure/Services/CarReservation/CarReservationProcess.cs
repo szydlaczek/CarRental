@@ -30,7 +30,7 @@ namespace CarRental.Infrastructure.Services.CarReservation
                 return new CommandResult
                 {
                     Success = false,
-                    Message = "Car Type doesnt exists"
+                    Message = "Brak typu pojazdu"
                 };
             var carReservation = new CarReservationEntity(carTypeId, city, postCode, street, phoneNumber, name, dateReservation);
             var result = carType.AddCarReservation(carReservation);
@@ -39,7 +39,7 @@ namespace CarRental.Infrastructure.Services.CarReservation
                 return new CommandResult
                 {
                     Success = false,
-                    Message = $"Typ pojazdu niedostępny w dniu {dateReservation.Date} "
+                    Message = $"Typ pojazdu niedostępny w dniu {dateReservation.Date.ToString("yyyy-MM-dd")} "
                 };
             else
             {

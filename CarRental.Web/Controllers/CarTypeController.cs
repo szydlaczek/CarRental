@@ -14,10 +14,10 @@ namespace CarRental.Web.Controllers
             : base(commandDispatcher, queryDispatcher)
         {
         }
-        public ActionResult Index()
-        {
-            return RedirectToAction("CreateCarReservation");
-        }
+        //public ActionResult Index()
+        //{
+        //    return RedirectToAction("CreateCarReservation");
+        //}
         public async Task<ActionResult> CreateCarReservation()
         {            
             ViewBag.CarTypeList = await QueryDispatcher.DispatchAll<CarTypeViewModel>();
@@ -31,6 +31,12 @@ namespace CarRental.Web.Controllers
             if (ModelState.IsValid)
             {
                 result = await CommandDispatcher.DispatchAsync(command);
+                if (!result.Success)
+                {
+                    ViewBag.CarTypeList = await QueryDispatcher.DispatchAll<CarTypeViewModel>();
+                    ModelState.AddModelError("", $"{result.Message}");
+                    return View();
+                }
                 return View("ReservationSuccess");
             }                
             else

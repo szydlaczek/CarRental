@@ -10,7 +10,6 @@ namespace CarRental.Core.Specifications.CarType
         {
             Condition = c => c.Id == id;
         }
-
         public Expression<Func<CarTypeEntity, bool>> Condition { get; }
     }
 }

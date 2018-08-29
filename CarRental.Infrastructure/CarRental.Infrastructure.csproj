@@ -109,7 +109,6 @@
     <Compile Include="IOC\Modules\ContainerModule.cs" />
     <Compile Include="IOC\Modules\DbContextModule.cs" />
     <Compile Include="IOC\Modules\QueryModule.cs" />
-    <Compile Include="IOC\Modules\RepositoryModule.cs" />
     <Compile Include="IOC\Modules\ServiceModule.cs" />
     <Compile Include="Migrations\201808280633021_Create.cs" />
     <Compile Include="Migrations\201808280633021_Create.Designer.cs">
@@ -132,7 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTO\" />
-    <Folder Include="Repositories\" />
     <Folder Include="Services\CarType\" />
   </ItemGroup>
   <ItemGroup>
