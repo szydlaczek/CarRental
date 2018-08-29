@@ -19,14 +19,19 @@ namespace CarRental.Core.Domain
 
         public CarReservationEntity(int carTypeId, string city,
             string postCode, string street,
-            string phoneNumber, string name)
+            string phoneNumber, string name, DateTime date)
         {
-            //CarTypeId = carTypeId;
+           
             City = city;
             PostCode = PostCode;
             Street = street;
             PhoneNumber = phoneNumber;
             Name = name;
+            ReservationDate = date;
+        }
+        protected CarReservationEntity()
+        {
+
         }
     }
 }

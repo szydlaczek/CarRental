@@ -1,4 +1,5 @@
 ﻿using CarRental.Infrastructure.Command.CarReservation;
+using CarRental.Infrastructure.Converters;
 using CarRental.Infrastructure.ViewModels;
 using FluentValidation;
 using System;
@@ -44,20 +45,19 @@ namespace CarRental.Infrastructure.Validation
                 .NotNull()
                 .WithMessage("To pole jest wymagane")
                 .Must(BeValidDate)
-                .WithMessage("Podaj datę w formacie yyyy-mm-dd")
-                .Must(BeFutureDate)
-                .WithMessage($"Podan data nie może być wcześniejsza od {DateTime.Now.Date.AddDays(1)}");
+                .WithMessage("Podaj datę w formacie yyyy-mm-dd");               
 
         }
         private bool BeValidDate(string value)
         {
             DateTime date;
-            return DateTime.TryParseExact(value, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out date);
+            return DateFromString.Convert(value, out date);
         }
         private bool BeFutureDate(string value)
         {
             DateTime date;
-            DateTime.TryParseExact(value, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out date);
+            
+            DateFromString.Convert(value, out date);
             if (date <= DateTime.Now.Date)
                 return false;
             else

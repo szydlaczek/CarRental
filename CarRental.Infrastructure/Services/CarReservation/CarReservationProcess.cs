@@ -32,7 +32,7 @@ namespace CarRental.Infrastructure.Services.CarReservation
                     Success = false,
                     Message = "Car Type doesnt exists"
                 };
-            var carReservation = new CarReservationEntity(carTypeId, city, postCode, street, phoneNumber, name);
+            var carReservation = new CarReservationEntity(carTypeId, city, postCode, street, phoneNumber, name, dateReservation);
             var result = carType.AddCarReservation(carReservation);
 
             if (result == CreateCarReservationResult.MaxCarPerDayExceeded)
