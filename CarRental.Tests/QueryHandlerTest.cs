@@ -16,10 +16,10 @@ namespace CarRental.Tests
         [Fact]
         public async Task QueryCartypes_should_return_all_cartypes()
         {
-            var data = new List<CarTypeEntity>
-            {
-            }.AsQueryable();
-
+            List<CarTypeEntity> carTypeList = new List<CarTypeEntity>();
+            carTypeList.Add(new CarTypeEntity("Test", 200, 5, 4, 200));
+            var data = carTypeList.AsQueryable();
+            
             var mockSet = new Mock<DbSet<CarTypeEntity>>();
             mockSet.As<IDbAsyncEnumerable<CarTypeEntity>>()
                 .Setup(m => m.GetAsyncEnumerator())
