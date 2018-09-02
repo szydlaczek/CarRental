@@ -13,7 +13,7 @@ namespace CarRental.Core.Domain
         public string City { get; private set; }
         public string PostCode { get; private set; }
         public string Street { get; private set; }
-
+        public int CarTypeId { get; private set; }
         public CarReservationEntity(int carTypeId, string city,
             string postCode, string street,
             string phoneNumber, string name, DateTime date)
