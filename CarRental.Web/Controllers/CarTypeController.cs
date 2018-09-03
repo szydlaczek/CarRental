@@ -21,7 +21,7 @@ namespace CarRental.Web.Controllers
         public async Task<ActionResult> CreateCarReservation()
         {
             ViewBag.CarTypeList = await QueryDispatcher.DispatchAll<CarTypeViewModel>();
-            return View(new CreateCarReservation());
+            return View("CreateCarReservation", new CreateCarReservation());
         }
 
         [HttpPost]

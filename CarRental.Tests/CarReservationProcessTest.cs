@@ -52,6 +52,9 @@ namespace CarRental.Tests
             
             var result = await carReservationProcess.MakeReservation(new CarReservationEntity(0, "Test1", "Test1", "Test1", "Test1", "Test1", DateTime.Now.Date));
             Assert.False(result.Success);
+            var resultCarTypeNotFound= await carReservationProcess.MakeReservation(new CarReservationEntity(1, "Test1", "Test1", "Test1", "Test1", "Test1", DateTime.Now.Date));
+            Assert.False(resultCarTypeNotFound.Success);
         }
+        
     }
 }
