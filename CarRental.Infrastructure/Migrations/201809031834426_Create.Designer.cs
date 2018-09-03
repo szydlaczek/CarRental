@@ -13,7 +13,7 @@ namespace CarRental.Infrastructure.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201808280633021_Create"; }
+            get { return "201809031834426_Create"; }
         }
         
         string IMigrationMetadata.Source

@@ -20,26 +20,26 @@ namespace CarRental.Infrastructure.Services.CarReservation
             _context = context;
         }
 
-        public async Task<CommandResult> MakeReservation(int carTypeId, string name,
-            string phoneNumber, string postCode,
-            string city, string street,
-            DateTime dateReservation)
+        public async Task<CommandResult> MakeReservation(CarReservationEntity carReservation)
         {
-            var carType = await _context.Set<CarTypeEntity>().Where(new CarTypeSpecificationById(carTypeId).Condition).FirstOrDefaultAsync();
+            var carType = await _context.CarType
+                .Where(ct=>ct.Id== carReservation.CarTypeId)
+                .FirstOrDefaultAsync();
+
             if (carType == null)
                 return new CommandResult
                 {
                     Success = false,
                     Message = "Brak typu pojazdu"
                 };
-            var carReservation = new CarReservationEntity(carTypeId, city, postCode, street, phoneNumber, name, dateReservation);
+            //var carReservation = new CarReservationEntity(carTypeId, city, postCode, street, phoneNumber, name, dateReservation);
             var result = carType.AddCarReservation(carReservation);
 
             if (result == CreateCarReservationResult.MaxCarPerDayExceeded)
                 return new CommandResult
                 {
                     Success = false,
-                    Message = $"Typ pojazdu niedostępny w dniu {dateReservation.Date.ToString("yyyy-MM-dd")} "
+                    Message = $"Typ pojazdu niedostępny w dniu {carReservation.ReservationDate.ToString("yyyy-MM-dd")} "
                 };
             else
             {

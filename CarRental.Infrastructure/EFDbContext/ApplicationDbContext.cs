@@ -6,8 +6,8 @@ namespace CarRental.Infrastructure.ApplicationDbContext
 {
     public class ApplicationContext : DbContext, IDbContext
     {
-        public DbSet<CarReservationEntity> CarReservation { get; set; }
-        public DbSet<CarTypeEntity> CarType { get; set; }
+        public IDbSet<CarReservationEntity> CarReservation { get; set; }
+        public IDbSet<CarTypeEntity> CarType { get; set; }
 
         public ApplicationContext() : base("CarRental")
         {
@@ -17,7 +17,7 @@ namespace CarRental.Infrastructure.ApplicationDbContext
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<CarTypeEntity>().HasMany(CarTypeEntity.CarReservationeAccessor)
-                .WithRequired();
+                .WithRequired().HasForeignKey(a => a.CarTypeId);
         }
     }
 }

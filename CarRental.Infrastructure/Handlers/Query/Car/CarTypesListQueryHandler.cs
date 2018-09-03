@@ -27,7 +27,7 @@ namespace CarRental.Infrastructure.Handlers.Query.Car
 
         public async Task<IEnumerable<CarTypeViewModel>> RetrievieAll()
         {
-            return await _context.Set<CarTypeEntity>().Select(s => new CarTypeViewModel { Id = s.Id, Name = s.Name }).ToListAsync();
+            return await _context.CarType.Select(s => new CarTypeViewModel { Id = s.Id, Name = s.Name }).ToListAsync();
         }
     }
 }

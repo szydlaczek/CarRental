@@ -1,4 +1,5 @@
-﻿using CarRental.Infrastructure.Command;
+﻿using CarRental.Core.Domain;
+using CarRental.Infrastructure.Command;
 using CarRental.Infrastructure.Command.CarReservation;
 
 using CarRental.Infrastructure.Services.CarReservation;
@@ -17,8 +18,12 @@ namespace CarRental.Infrastructure.Handlers.Car
 
         public async Task<CommandResult> HandleAsync(CreateCarReservation command)
         {
-            CommandResult result = await _carReservationProcess.MakeReservation(command.CarTypeId, command.Name,
-                command.PhoneNumber, command.PostCode, command.City, command.Street, command.GetReservationDate());
+            CarReservationEntity carReservation = new CarReservationEntity(command.CarTypeId, command.City,
+                command.PostCode, command.Street, 
+                command.PhoneNumber, command.Name, 
+                command.GetReservationDate());
+
+            CommandResult result = await _carReservationProcess.MakeReservation(carReservation);
             return result;
         }
     }

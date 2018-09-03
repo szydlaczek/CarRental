@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Async.cs" />
+    <Compile Include="BaseTest.cs" />
     <Compile Include="CarReservationProcessTest.cs" />
     <Compile Include="CommandHandlerTest.cs" />
     <Compile Include="QueryHandlerTest.cs" />

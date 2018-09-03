@@ -12,11 +12,15 @@ namespace CarRental.Core.Domain
     {
         [Key]
         public int Id { get; private set; }
-
+        [Required]
         public string Name { get; private set; }
+        [Required]
         public int Capacity { get; private set; }
+        [Required]
         public int PassengerCount { get; private set; }
+        [Required]
         public int NumberOfCars { get; private set; }
+        [Required]
         public decimal DayPrice { get; private set; }
         protected virtual ICollection<CarReservationEntity> CarReservationStorage { get; set; }
         public static Expression<Func<CarTypeEntity, ICollection<CarReservationEntity>>> CarReservationeAccessor = f => f.CarReservationStorage;
@@ -31,6 +35,7 @@ namespace CarRental.Core.Domain
 
         protected CarTypeEntity()
         {
+            CarReservationStorage = new HashSet<CarReservationEntity>();
         }
 
         public CarTypeEntity(string name, int capacity, int passengerCount, int numberOfCars, decimal dayPrice)
@@ -39,10 +44,13 @@ namespace CarRental.Core.Domain
             Capacity = capacity;
             passengerCount = PassengerCount;
             NumberOfCars = numberOfCars;
+
         }
 
         public CreateCarReservationResult AddCarReservation(CarReservationEntity reservation)
         {
+            if (this.CarReservationStorage == null)
+                this.CarReservationStorage = new HashSet<CarReservationEntity>();
             var reservationCount = this.CarReservationStorage.Where(c => c.ReservationDate.Date == reservation.ReservationDate.Date).Count();
             if (reservationCount < this.NumberOfCars)
             {

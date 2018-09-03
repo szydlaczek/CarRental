@@ -8,6 +8,7 @@ using Moq;
 using CarRental.Infrastructure.Services.CarReservation;
 using CarRental.Infrastructure.Command.CarReservation;
 using Xunit;
+using CarRental.Core.Domain;
 
 namespace CarRental.Tests
 {
@@ -26,24 +27,18 @@ namespace CarRental.Tests
             command.CarTypeId = 1;
             command.City = "Nowa Ruda";
 
-            await handler.HandleAsync(new CreateCarReservation {
-                City="TestCity",
-                PostCode="57-400",
-                Name="TestName",
-                CarTypeId=1,
-                PhoneNumber="55555555",
-                ReservationDate="2018-08-08",
-                Street="TestStreet"
+            await handler.HandleAsync(new CreateCarReservation
+            {
+                City = "TestCity",
+                PostCode = "57-400",
+                Name = "TestName",
+                CarTypeId = 1,
+                PhoneNumber = "55555555",
+                ReservationDate = "2018-08-08",
+                Street = "TestStreet"
             });
             _reservationProcessMock
-                .Verify(x => x.MakeReservation(It.IsAny<int>(), 
-                It.IsAny<string>(), 
-                It.IsAny<string>(), 
-                It.IsAny<string>(), 
-                It.IsAny<string>(), 
-                It.IsAny<string>(), 
-                It.IsAny<DateTime>()),
-                Times.Once);
+                .Verify(x => x.MakeReservation(It.IsAny<CarReservationEntity>()), Times.Once);
         }
     }
 }
