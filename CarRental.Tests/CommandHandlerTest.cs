@@ -12,7 +12,7 @@ using CarRental.Core.Domain;
 
 namespace CarRental.Tests
 {
-    public class CommandHandlerTest
+    public class CommandHandlerTest : BaseTest
     {
         public CommandHandlerTest()
         {
@@ -20,12 +20,8 @@ namespace CarRental.Tests
         }
         [Fact]
         public async Task HandleAsync_should_invoke_makeReservation_on_CarReservationProcess()
-        {
-            var _reservationProcessMock = new Mock<ICarReservationProcess>();
-            CreateCarReservationHandler handler = new CreateCarReservationHandler(_reservationProcessMock.Object);
-            CreateCarReservation command = new CreateCarReservation();
-            command.CarTypeId = 1;
-            command.City = "Nowa Ruda";
+        {            
+            CreateCarReservationHandler handler = new CreateCarReservationHandler(_reservationProcessMock.Object);            
 
             await handler.HandleAsync(new CreateCarReservation
             {
